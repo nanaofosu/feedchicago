@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.AddVolunteerView">
+   <children>
+      <VBox prefHeight="244.0" prefWidth="251.0">
+         <children>
+            <TextField fx:id="field_firstname" promptText="first name" />
+            <TextField fx:id="field_lastname" promptText="last name" />
+            <DatePicker fx:id="field_date" promptText="mm/dd/yyyy" />
+            <HBox fx:id="field_gender" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="field_gender_female" mnemonicParsing="false" text="Female" />
+                  <RadioButton fx:id="field_gender_male" mnemonicParsing="false" text="Male" />
+               </children>
+            </HBox>
+            <TextField fx:id="field_email" promptText="email address" />
+            <TextField fx:id="field_street_address" promptText="Street Address" />
+            <TextField fx:id="field_city" promptText="City" />
+            <TextField fx:id="field_state" promptText="State" />
+            <TextField fx:id="field_zipcode" promptText="Zipcode" />
+            <TextField fx:id="field_phone" promptText="Phone" />
+            <TextField fx:id="field_occupation" promptText="Occupation" />
+            <TextField fx:id="field_employer" promptText="Employer" />
+            <HBox fx:id="field_driverslicense" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="field_driverslicense_yes" mnemonicParsing="false" text="I have a driver's license" wrapText="true" />
+                  <RadioButton fx:id="field_driverslicense_no" mnemonicParsing="false" text="I do not have a driver's license" wrapText="true" />
+               </children>
+            </HBox>
+            <Button fx:id="field_save" mnemonicParsing="false" text="Save" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="ribbon" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main-wrapper" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="50.0" prefWidth="900.0" styleClass="main-wrapper" stylesheets="@../assets/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <HBox layoutY="50.0" prefHeight="550.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <AnchorPane prefHeight="550.0" prefWidth="300.0">
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="607.0" prefWidth="908.0">
+        <items>
+          <AnchorPane id="sidebar" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="sidebar" stylesheets="@../assets/style.css">
                <children>
-                  <HBox>
+                  <HBox prefHeight="53.0" prefWidth="266.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label text="Home" textFill="WHITE">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding></Label>
+                        <ImageView fitHeight="37.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Home" />
+                     </children>
+                  </HBox>
+                  <HBox layoutY="53.0" prefHeight="53.0" prefWidth="266.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Add Skill" />
+                     </children>
+                  </HBox>
+                  <HBox layoutY="106.0" prefHeight="53.0" prefWidth="266.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="Add Volunteer" />
                      </children>
                   </HBox>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="550.0" prefWidth="600.0" />
-         </children>
-      </HBox>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="230.0" />
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

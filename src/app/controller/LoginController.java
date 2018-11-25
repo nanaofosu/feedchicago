@@ -48,7 +48,6 @@ public class LoginController implements StringAssets{
             if(username.equals("")){
                 loginViewErrorMessage.setText(USERNAME_EMPTY);
                 loginViewErrorMessage.setTextFill(Paint.valueOf("#000000"));
-
             }
             else {
                 loginUser(username,password);

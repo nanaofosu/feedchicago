@@ -19,13 +19,6 @@ public class DatabaseHandler extends Configs{
     }
 
     //todo Write
-//    public void addVolunteer(String firstname, String lastname,
-//                             String dob, String gender, String email,
-//                             String phone){
-//        String insert = "INSERT INTO " + VOlUNTEER_TABLE + "("+VOLUNTEER_FIRSTNAME+", "+VOLUNTEER_LASTNAME+", "+VOLUNTEER_DOB+", "+
-//                VOLUNTEER_GENDER+", "+ VOLUNTEER_EMAIL+", "+ VOLUNTEER_PHONE)
-//
-//    }
 
     public void addSkill(String name, String description){
         String insert = INSERT + SKILL_TABLE + "(" + SKILL_NAME +","+ SKILL_DESC + ") VALUES (?,?)";
@@ -46,11 +39,37 @@ public class DatabaseHandler extends Configs{
     public void addVolunteer(String firstname, String lastname, String dob, String email,
                              String address, String city, String state, String zipcode, String phone,
                              String occupation, String employer){
-        String insert = INSERT + VOlUNTEER_TABLE + "(" + SKILL_NAME +","+ SKILL_DESC + ") VALUES (?,?)";
+        String insert = INSERT + VOlUNTEER_TABLE + "(" + VOLUNTEER_FIRSTNAME +","+ VOLUNTEER_LASTNAME
+                +","+ VOLUNTEER_DOB +","+ VOLUNTEER_EMAIL  +","+ VOLUNTEER_ADDRESS  +","+ VOLUNTEER_CITY
+                +","+ VOLUNTEER_STATE  +","+ VOLUNTEER_ZIPCODE  +","+ VOLUNTEER_PHONE  +","+
+                VOLUNTEER_OCCUPATION  +","+ VOLUNTEER_EMPLOYER
+                + ") VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+        try{
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
+            preparedStatement.setString(1, firstname);
+            preparedStatement.setString(2, lastname);
+            preparedStatement.setString(3, dob);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, address);
+            preparedStatement.setString(6, city);
+            preparedStatement.setString(7, state);
+            preparedStatement.setString(8, zipcode);
+            preparedStatement.setString(9, phone);
+            preparedStatement.setString(10, occupation);
+            preparedStatement.setString(11, employer);
+            preparedStatement.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("DB COnnection fail.");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 
     //todo READ
+
     //todo UPDATE
     //todo Delete
 

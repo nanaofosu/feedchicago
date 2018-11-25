@@ -1,8 +1,8 @@
 .main-wrapper{
-    -fx-background: #e0e0e0;
+    -fx-background: #388999;
 }
 
-.ribbon{
-    -fx-background: #388999;
+#sidebar{
+    -fx-background: #e0e0e0;
 
 }

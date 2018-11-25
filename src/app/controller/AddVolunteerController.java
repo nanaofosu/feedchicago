@@ -2,10 +2,7 @@ package app.controller;
 
 import app.database.DatabaseHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.time.LocalDate;
@@ -21,13 +18,13 @@ public class AddVolunteerController {
     private DatePicker field_date;
 
     @FXML
-    private Boolean field_gender;
+    private HBox field_gender;
 
-    @FXML
-    private RadioButton field_gender_female;
+        @FXML
+        private RadioButton field_gender_female;
 
-    @FXML
-    private RadioButton field_gender_male;
+        @FXML
+        private RadioButton field_gender_male;
 
     @FXML
     private TextField field_email;
@@ -65,6 +62,10 @@ public class AddVolunteerController {
     @FXML
     private Button field_save;
 
+    String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer;
+
+
+
     public void initialize(){
         DatabaseHandler databaseHandler = new DatabaseHandler();
         //set all fields to null
@@ -80,24 +81,39 @@ public class AddVolunteerController {
         field_occupation.clear();
         field_employer.clear();
 
+//        ToggleGroup radioGroup = new ToggleGroup();
+//        field_gender_female.setToggleGroup(radioGroup);
+//        field_gender_male.setToggleGroup(radioGroup);
+//        field_gender = new HBox(field_gender_female, field_gender_male);
+
+
+
+
         //when the save button is clicked gett all the values.
         field_save.setOnAction(event -> {
-            field_firstname.getText().trim();
-            field_lastname.getText().trim();
-            field_date.getValue();
-            field_email.getText().trim();
-            field_street_address.getText().trim();
-            field_city.getText().trim();
-            field_state.getText().trim();
-            field_zipcode.getText().trim();
-            field_phone.getText().trim();
-            field_occupation.getText().trim();
-            field_employer.getText().trim();
+//            field_firstname.
+            firstname = field_firstname.getText();
+            lastname = field_lastname.getText();
+            dob = field_date.getValue().toString();
+            email = field_email.getText();
+            address = field_street_address.getText();
+            city = field_city.getText();
+            state = field_state.getText();
+            zipcode = field_zipcode.getText();
+            phone = field_phone.getText();
+            occupation = field_occupation.getText();
+            employer = field_employer.getText();
 
+
+
+//            RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
+//            field_gender = getGender();
 
             //call the database connector and run your query
-            databaseHandler.addVolunteer();
+            databaseHandler.addVolunteer(firstname, lastname, dob, email, address, city, state, zipcode, phone, occupation, employer);
         });
 
     }
+
+
 }

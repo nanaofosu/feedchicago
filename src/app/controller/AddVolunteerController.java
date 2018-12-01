@@ -1,11 +1,21 @@
 package app.controller;
 
 import app.database.DatabaseHandler;
+import app.model.Skill;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class AddVolunteerController {
     @FXML
@@ -20,11 +30,11 @@ public class AddVolunteerController {
     @FXML
     private HBox field_gender;
 
-        @FXML
-        private RadioButton field_gender_female;
+    @FXML
+    private RadioButton field_gender_female;
 
-        @FXML
-        private RadioButton field_gender_male;
+    @FXML
+    private RadioButton field_gender_male;
 
     @FXML
     private TextField field_email;
@@ -62,7 +72,17 @@ public class AddVolunteerController {
     @FXML
     private Button field_save;
 
-    String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer;
+    ObservableList skills = FXCollections.observableArrayList();
+
+    @FXML
+    private ListView fieldSkillList = new ListView(skills);
+
+
+    private String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer;
+
+
+
+
 
 
 
@@ -80,6 +100,39 @@ public class AddVolunteerController {
         field_phone.clear();
         field_occupation.clear();
         field_employer.clear();
+
+
+        DatabaseHandler conn = new DatabaseHandler();
+        try {
+            Statement stmt = conn.getDbConnection().createStatement();
+            String sql = "Select * FROM skill";
+            ResultSet rs = stmt.executeQuery(sql);
+
+
+            while(rs.next()){
+                String skillname = rs.getString("skillname");
+                skills.add(skillname);
+                fieldSkillList.setItems(skills);
+            }
+
+
+
+
+            rs.close();
+
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+
 
 //        ToggleGroup radioGroup = new ToggleGroup();
 //        field_gender_female.setToggleGroup(radioGroup);

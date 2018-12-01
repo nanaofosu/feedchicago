@@ -1,8 +1,12 @@
 package app.database;
 
+import app.model.Skill;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
-import app.database.Const;
-import app.model.Volunteer;
+import java.util.ArrayList;
+import java.util.Observable;
 
 import static app.database.Const.*;
 
@@ -13,7 +17,7 @@ public class DatabaseHandler extends Configs{
         String connectionString = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName;
         Class.forName("com.mysql.jdbc.Driver");
         dbConnection = DriverManager.getConnection(connectionString,dbUser,dbPass);
-        System.out.println(dbConnection.getCatalog());
+//        System.out.println(dbConnection.getCatalog());
 
         return dbConnection;
     }
@@ -69,6 +73,9 @@ public class DatabaseHandler extends Configs{
 
 
     //todo READ
+
+
+
 
     //todo UPDATE
     //todo Delete

@@ -21,6 +21,8 @@ public class Const {
     public static final String VOLUNTEER_PHONE = "phone";
     public static final String VOLUNTEER_OCCUPATION = "occupation";
     public static final String VOLUNTEER_EMPLOYER = "employer";
+    public static final String VOLUNTEER_LICENSE = "license";
+
 
     /* Skill table */
     public static final String SKILL_NAME = "skillname";

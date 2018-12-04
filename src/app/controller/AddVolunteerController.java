@@ -72,13 +72,20 @@ public class AddVolunteerController {
     @FXML
     private Button field_save;
 
+    @FXML
+    private ToggleGroup gender;
+
+    @FXML
+    private ToggleGroup driversLicense;
+
     ObservableList skills = FXCollections.observableArrayList();
+    ObservableList skillIDs = FXCollections.observableArrayList();
 
     @FXML
     private ListView fieldSkillList = new ListView(skills);
 
 
-    private String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer;
+    private String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer, volunteerGender, license, skill;
 
 
 
@@ -100,9 +107,6 @@ public class AddVolunteerController {
         field_phone.clear();
         field_occupation.clear();
         field_employer.clear();
-
-
-
 
 
 
@@ -146,12 +150,29 @@ public class AddVolunteerController {
             phone = field_phone.getText();
             occupation = field_occupation.getText();
             employer = field_employer.getText();
+            skill = fieldSkillList.getSelectionModel().getSelectedItem().toString();
+
+            //get the gender value
+            if(field_gender_male.isSelected()){
+                volunteerGender = "M";
+            }else {
+                volunteerGender = "F";
+            }
+
+            if(field_driverslicense_yes.isSelected()){
+                license = "Yes";
+            }else{
+                license = "No";
+            }
+
+            int selectedSkillID = databaseHandler.getSkillID(skill);
+            System.out.println(selectedSkillID);
 
             //call the database connector and run your query
-            int volunteerID;
-            volunteerID = databaseHandler.addVolunteer(firstname, lastname, dob, email, address, city, state, zipcode, phone, occupation, employer);
+            int newestVolunteerID = databaseHandler.addVolunteer(firstname, lastname, dob, email, address, city, state, zipcode, phone, occupation, employer, volunteerGender, license);
 
            /* We want to retrieve the volunteer ID and skill ID and enter it into the skill_index table */
+            databaseHandler.addToSkillIndex(selectedSkillID,newestVolunteerID);
 
         });
 

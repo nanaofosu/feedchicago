@@ -48,8 +48,8 @@ public class DatabaseHandler extends Configs{
     */
     public int addVolunteer(String firstname, String lastname, String dob, String email,
                              String address, String city, String state, String zipcode, String phone,
-                             String occupation, String employer){
-        int last_insert_id = 0;
+                             String occupation, String employer, String volunteerGender, String license){
+        int newestVolunteerID = 0;
         String insert = INSERT + VOlUNTEER_TABLE + "(" +
                 VOLUNTEER_FIRSTNAME +","+
                 VOLUNTEER_LASTNAME +","+
@@ -61,8 +61,10 @@ public class DatabaseHandler extends Configs{
                 VOLUNTEER_ZIPCODE  +","+
                 VOLUNTEER_PHONE  +","+
                 VOLUNTEER_OCCUPATION  +","+
-                VOLUNTEER_EMPLOYER
-                + ") VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                VOLUNTEER_EMPLOYER +","+
+                VOLUNTEER_GENDER +","+
+                VOLUNTEER_LICENSE
+                + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try{
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
@@ -77,7 +79,16 @@ public class DatabaseHandler extends Configs{
             preparedStatement.setString(9, phone);
             preparedStatement.setString(10, occupation);
             preparedStatement.setString(11, employer);
+            preparedStatement.setString(12, volunteerGender);
+            preparedStatement.setString(13, license);
             preparedStatement.executeUpdate();
+
+            Statement stmt = getDbConnection().createStatement();
+            String sql = "SELECT volunteerID FROM volunteer ORDER BY volunteerID DESC LIMIT 1;";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                newestVolunteerID = rs.getInt("volunteerID");
+            }
 
 
 
@@ -90,14 +101,14 @@ public class DatabaseHandler extends Configs{
 
 
 
-        return last_insert_id;
+        return newestVolunteerID;
 
     }
 
     public void addToSkillIndex(int skillID, int volunteerID){
 
         //get the volunteer id
-        String insert =  "INSERT INTO skill_index(skillID, volunteerID) VALUES (??)";
+        String insert =  "INSERT INTO skill_index(skillID, volunteerID) VALUES (?,?)";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
@@ -110,6 +121,25 @@ public class DatabaseHandler extends Configs{
         }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getSkillID(String skillname){
+        String sql =  "Select skillID from skill where skillname = '"+skillname+"'";
+        int skillID = 0;
+        try {
+            Statement stmt = getDbConnection().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                skillID = rs.getInt("skillID");
+            }
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+
+        return skillID;
+
     }
 
 

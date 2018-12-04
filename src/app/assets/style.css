@@ -6,3 +6,17 @@
     -fx-background: #e0e0e0;
 
 }
+
+.dashboard-button{
+    -fx-background: #ffffff;
+    -fx-padding: 20px;
+    -fx-border-insets: 5px;
+        -fx-background-insets: 5px;
+        -fx-background-radius: 10px;
+        -fx-border-color: transparent;
+}
+
+.dashboard-button-wrapper{
+    display: flex;
+    justify-content: space-between;
+}

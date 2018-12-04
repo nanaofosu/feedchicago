@@ -1,21 +1,16 @@
 package app.controller;
 
 import app.database.DatabaseHandler;
-import app.model.Skill;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 public class AddVolunteerController {
     @FXML
@@ -79,13 +74,25 @@ public class AddVolunteerController {
     private ToggleGroup driversLicense;
 
     ObservableList skills = FXCollections.observableArrayList();
-    ObservableList skillIDs = FXCollections.observableArrayList();
 
     @FXML
     private ListView fieldSkillList = new ListView(skills);
 
 
-    private String firstname,  lastname,  dob,  email,  address,  city,  state,  zipcode,  phone,  occupation,  employer, volunteerGender, license, skill;
+    private String firstname;
+    private String lastname;
+    private String dob;
+    private String email;
+    private String address;
+    private String city;
+    private String state;
+    private String zipcode;
+    private String phone;
+    private String occupation;
+    private String employer;
+    private String volunteerGender;
+    private String license;
+    private String skill;
 
 
 
@@ -94,8 +101,10 @@ public class AddVolunteerController {
 
 
     public void initialize(){
+        //Creating a database handler to use for this controller.
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        //set all fields to null
+
+        //set all text fields to null
         field_firstname.clear();
         field_lastname.clear();
         field_date.setValue(LocalDate.now());
@@ -109,13 +118,9 @@ public class AddVolunteerController {
         field_employer.clear();
 
 
-
-        //Creating a database handler to use for this controller.
-        DatabaseHandler conn = new DatabaseHandler();
-
         //Getting the list of skills needed for the project.
         try {
-            Statement stmt = conn.getDbConnection().createStatement();
+            Statement stmt = databaseHandler.getDbConnection().createStatement();
             String sql = "Select * FROM skill";
             ResultSet rs = stmt.executeQuery(sql);
             String skillname;

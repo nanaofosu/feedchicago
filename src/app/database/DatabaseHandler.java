@@ -25,7 +25,10 @@ public class DatabaseHandler extends Configs{
     //todo Write
 
     public void addSkill(String name, String description){
-        String insert = INSERT + SKILL_TABLE + "(" + SKILL_NAME +","+ SKILL_DESC + ") VALUES (?,?)";
+        String insert = INSERT + SKILL_TABLE + "(" +
+                SKILL_NAME +","+
+                SKILL_DESC
+                + ") VALUES (?,?)";
 
         try{
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
@@ -40,14 +43,26 @@ public class DatabaseHandler extends Configs{
         }
     }
 
-    public void addVolunteer(String firstname, String lastname, String dob, String email,
+    /*
+        Adding a volunteer to the database
+    */
+    public int addVolunteer(String firstname, String lastname, String dob, String email,
                              String address, String city, String state, String zipcode, String phone,
                              String occupation, String employer){
-        String insert = INSERT + VOlUNTEER_TABLE + "(" + VOLUNTEER_FIRSTNAME +","+ VOLUNTEER_LASTNAME
-                +","+ VOLUNTEER_DOB +","+ VOLUNTEER_EMAIL  +","+ VOLUNTEER_ADDRESS  +","+ VOLUNTEER_CITY
-                +","+ VOLUNTEER_STATE  +","+ VOLUNTEER_ZIPCODE  +","+ VOLUNTEER_PHONE  +","+
-                VOLUNTEER_OCCUPATION  +","+ VOLUNTEER_EMPLOYER
-                + ") VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        int last_insert_id = 0;
+        String insert = INSERT + VOlUNTEER_TABLE + "(" +
+                VOLUNTEER_FIRSTNAME +","+
+                VOLUNTEER_LASTNAME +","+
+                VOLUNTEER_DOB +","+
+                VOLUNTEER_EMAIL  +","+
+                VOLUNTEER_ADDRESS  +","+
+                VOLUNTEER_CITY +","+
+                VOLUNTEER_STATE  +","+
+                VOLUNTEER_ZIPCODE  +","+
+                VOLUNTEER_PHONE  +","+
+                VOLUNTEER_OCCUPATION  +","+
+                VOLUNTEER_EMPLOYER
+                + ") VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 
         try{
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
@@ -63,10 +78,36 @@ public class DatabaseHandler extends Configs{
             preparedStatement.setString(10, occupation);
             preparedStatement.setString(11, employer);
             preparedStatement.executeUpdate();
+
+
+
         }catch (SQLException e) {
             e.printStackTrace();
             System.out.println("DB COnnection fail.");
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return last_insert_id;
+
+    }
+
+    public void addToSkillIndex(int skillID, int volunteerID){
+
+        //get the volunteer id
+        String insert =  "INSERT INTO skill_index(skillID, volunteerID) VALUES (??)";
+
+        try {
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(insert);
+            preparedStatement.setInt(1, skillID);
+            preparedStatement.setInt(2, volunteerID);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

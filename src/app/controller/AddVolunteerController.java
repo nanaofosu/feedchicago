@@ -102,25 +102,27 @@ public class AddVolunteerController {
         field_employer.clear();
 
 
+
+
+
+
+        //Creating a database handler to use for this controller.
         DatabaseHandler conn = new DatabaseHandler();
+
+        //Getting the list of skills needed for the project.
         try {
             Statement stmt = conn.getDbConnection().createStatement();
             String sql = "Select * FROM skill";
             ResultSet rs = stmt.executeQuery(sql);
-
+            String skillname;
 
             while(rs.next()){
-                String skillname = rs.getString("skillname");
+                skillname = rs.getString("skillname");
                 skills.add(skillname);
                 fieldSkillList.setItems(skills);
             }
 
-
-
-
             rs.close();
-
-
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -131,20 +133,8 @@ public class AddVolunteerController {
 
 
 
-
-
-
-//        ToggleGroup radioGroup = new ToggleGroup();
-//        field_gender_female.setToggleGroup(radioGroup);
-//        field_gender_male.setToggleGroup(radioGroup);
-//        field_gender = new HBox(field_gender_female, field_gender_male);
-
-
-
-
         //when the save button is clicked gett all the values.
         field_save.setOnAction(event -> {
-//            field_firstname.
             firstname = field_firstname.getText();
             lastname = field_lastname.getText();
             dob = field_date.getValue().toString();
@@ -157,13 +147,12 @@ public class AddVolunteerController {
             occupation = field_occupation.getText();
             employer = field_employer.getText();
 
-
-
-//            RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
-//            field_gender = getGender();
-
             //call the database connector and run your query
-            databaseHandler.addVolunteer(firstname, lastname, dob, email, address, city, state, zipcode, phone, occupation, employer);
+            int volunteerID;
+            volunteerID = databaseHandler.addVolunteer(firstname, lastname, dob, email, address, city, state, zipcode, phone, occupation, employer);
+
+           /* We want to retrieve the volunteer ID and skill ID and enter it into the skill_index table */
+
         });
 
     }

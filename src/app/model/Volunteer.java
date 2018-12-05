@@ -13,9 +13,27 @@ public class Volunteer {
     private String phone;
     private String occupation;
     private String employer;
-    private Boolean driverslicense;
+    private String driverslicense;
+    private String skill;
 
-    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, Boolean driverslicense) {
+    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String driverslicense, String skill) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+        this.gender = gender;
+        this.email = email;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.phone = phone;
+        this.occupation = occupation;
+        this.employer = employer;
+        this.driverslicense = driverslicense;
+        this.skill = skill;
+    }
+
+    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String driverslicense) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dob = dob;
@@ -142,11 +160,11 @@ public class Volunteer {
         this.employer = employer;
     }
 
-    public Boolean getDriverslicense() {
+    public String getDriverslicense() {
         return driverslicense;
     }
 
-    public void setDriverslicense(Boolean driverslicense) {
+    public void setDriverslicense(String driverslicense) {
         this.driverslicense = driverslicense;
     }
 }

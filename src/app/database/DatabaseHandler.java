@@ -1,12 +1,6 @@
 package app.database;
 
-import app.model.Skill;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Observable;
 
 import static app.database.Const.*;
 
@@ -141,6 +135,8 @@ public class DatabaseHandler extends Configs{
         return skillID;
 
     }
+
+
 
 
     //todo READ

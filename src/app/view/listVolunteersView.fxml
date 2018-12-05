@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="app.controller.ListVolunteersController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.ListVolunteersController">
+   <children>
+      <TableView fx:id="table" prefHeight="600.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="firstnameCol" prefWidth="-1.0" text="First Name" />
+          <TableColumn fx:id="lastnameCol" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="dobCol" minWidth="-Infinity" prefWidth="-1.0" text="Date of Birth" />
+            <TableColumn fx:id="genderCol" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="emailCol" prefWidth="-1.0" text="Email" />
+            <TableColumn fx:id="addressCol" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="cityCol" prefWidth="75.0" text="City" />
+            <TableColumn fx:id="stateCol" prefWidth="75.0" text="State" />
+            <TableColumn fx:id="ziocodeCol" prefWidth="75.0" text="Zipcode" />
+            <TableColumn fx:id="phoneCol" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="occupationCol" prefWidth="75.0" text="Occupation" />
+            <TableColumn fx:id="employerCol" prefWidth="75.0" text="Employer" />
+            <TableColumn fx:id="licenseCol" prefWidth="75.0" text="License" />
+            <TableColumn fx:id="skillCol" prefWidth="75.0" text="Skill" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

@@ -34,49 +34,30 @@ public class HomeController {
     public void initialize() {
 
         addSkillButton.setOnAction(event -> {
-//            addSkillButton.getScene().getWindow().hide();
             homerouter(ADD_SKILL_SCENE);
         });
 
         addVolunteerButton.setOnAction(event -> {
-//            addVolunteerButton.getScene().getWindow().hide();
             homerouter(ADD_VOLUNTEER_SCENE);
         });
 
         viewSkillsButton.setOnAction(event -> {
-//            viewSkillsButton.getScene().getWindow().hide();
             homerouter(ADD_SKILL_SCENE);
         });
 
         viewVolunteersButton.setOnAction(event -> {
-//            viewVolunteersButton.getScene().getWindow().hide();
             homerouter(VIEW_VOLUNTEERS_SCENE);
-
 
         });
 
         logoutButton.setOnAction(event -> {
-//            logoutButton.getScene().getWindow().hide();
             homerouter(LOGOUT_SCENE);
         });
 
     }
 
-    /*public void homerouter(String path) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        Parent root  = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
-    }*/
-
+    /*  OPEN A NEW WINDOW SO WE DON"T RUN OUT OF MEMORY */
     public void homerouter(String path) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));

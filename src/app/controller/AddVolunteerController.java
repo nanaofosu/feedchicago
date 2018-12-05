@@ -144,6 +144,7 @@ public class AddVolunteerController {
 
         //when the save button is clicked gett all the values.
         field_save.setOnAction(event -> {
+            field_save.disableProperty().bind(field_firstname.textProperty().isEmpty());
             firstname = field_firstname.getText();
             lastname = field_lastname.getText();
             dob = field_date.getValue().toString();

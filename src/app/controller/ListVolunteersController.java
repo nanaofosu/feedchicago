@@ -58,7 +58,6 @@ public class ListVolunteersController {
     @FXML
     private TableColumn<Volunteer, String> emailCol;
 
-
     @FXML
     private TableColumn<Volunteer, String> skillCol;
 
@@ -67,7 +66,23 @@ public class ListVolunteersController {
     public void initialize()  {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        String sql = "Select * from Volunteer";
+        String sql = "SELECT " +
+                "volunteer.firstname, " +
+                "volunteer.lastname, " +
+                "volunteer.dob, " +
+                "volunteer.gender, " +
+                "volunteer.email, " +
+                "volunteer.address, " +
+                "volunteer.city, " +
+                "volunteer.state, " +
+                "volunteer.zipcode, " +
+                "volunteer.phone, " +
+                "volunteer.occupation, " +
+                "volunteer.employer, " +
+                "volunteer.license,  " +
+                "skill.skillname, " +
+                "skill_index.skillIndexID " +
+                "FROM volunteer, skill, skill_index where skill_index.skillID = skill.skillID and volunteer.volunteerID = skill_index.volunteerID;";
 
         try {
             ResultSet rs = databaseHandler.getDbConnection().createStatement().executeQuery(sql);
@@ -86,7 +101,8 @@ public class ListVolunteersController {
                         rs.getString(VOLUNTEER_PHONE),
                         rs.getString(VOLUNTEER_OCCUPATION),
                         rs.getString(VOLUNTEER_EMPLOYER),
-                        rs.getString(VOLUNTEER_LICENSE)
+                        rs.getString(VOLUNTEER_LICENSE),
+                        rs.getString("skillname")
                         ));
 
             }
@@ -110,6 +126,7 @@ public class ListVolunteersController {
         occupationCol.setCellValueFactory(new PropertyValueFactory<>(VOLUNTEER_OCCUPATION));
         employerCol.setCellValueFactory(new PropertyValueFactory<>(VOLUNTEER_EMPLOYER));
         licenseCol.setCellValueFactory(new PropertyValueFactory<>(VOLUNTEER_LICENSE));
+        skillCol.setCellValueFactory(new PropertyValueFactory<>("skillname"));
 
 
         table.setItems(volunteersList);

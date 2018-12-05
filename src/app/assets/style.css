@@ -1,5 +1,6 @@
 .main-wrapper{
-    -fx-background: #388999;
+    -fx-background: #334052;
+    -fx-padding: 20px;
 }
 
 #sidebar{

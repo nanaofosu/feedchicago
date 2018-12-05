@@ -13,10 +13,10 @@ public class Volunteer {
     private String phone;
     private String occupation;
     private String employer;
-    private String driverslicense;
-    private String skill;
+    private String license;
+    private String skillname;
 
-    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String driverslicense, String skill) {
+    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String license, String skillname) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dob = dob;
@@ -29,11 +29,11 @@ public class Volunteer {
         this.phone = phone;
         this.occupation = occupation;
         this.employer = employer;
-        this.driverslicense = driverslicense;
-        this.skill = skill;
+        this.license = license;
+        this.skillname = skillname;
     }
 
-    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String driverslicense) {
+    public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String license) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dob = dob;
@@ -46,7 +46,7 @@ public class Volunteer {
         this.phone = phone;
         this.occupation = occupation;
         this.employer = employer;
-        this.driverslicense = driverslicense;
+        this.license = license;
     }
 
     //constructor with required fields
@@ -63,6 +63,7 @@ public class Volunteer {
     }
 
     //getter and setters
+
 
     public String getFirstname() {
         return firstname;
@@ -160,11 +161,19 @@ public class Volunteer {
         this.employer = employer;
     }
 
-    public String getDriverslicense() {
-        return driverslicense;
+    public String getLicense() {
+        return license;
     }
 
-    public void setDriverslicense(String driverslicense) {
-        this.driverslicense = driverslicense;
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public String getSkillname() {
+        return skillname;
+    }
+
+    public void setSkillname(String skillname) {
+        this.skillname = skillname;
     }
 }

@@ -29,6 +29,7 @@ public class HomeController {
     private String ADD_SKILL_SCENE = "/app/view/addSkillsView.fxml";
     private String ADD_VOLUNTEER_SCENE = "/app/view/addVolunteerView.fxml";
     private String LOGOUT_SCENE = "/app/view/loginView.fxml";
+    private String VIEW_VOLUNTEERS_SCENE = "/app/view/listVolunteersView.fxml";
 
     @FXML
     public void initialize() {
@@ -50,7 +51,7 @@ public class HomeController {
 
         viewVolunteersButton.setOnAction(event -> {
             addSkillButton.getScene().getWindow().hide();
-            homerouter(ADD_SKILL_SCENE);
+            homerouter(VIEW_VOLUNTEERS_SCENE);
         });
 
         logoutButton.setOnAction(event -> {

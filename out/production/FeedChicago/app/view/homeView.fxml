@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main-wrapper" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.HomeController">
+<AnchorPane  prefHeight="600.0" prefWidth="900.0" styleClass="main-wrapper" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.HomeController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -15,15 +15,15 @@
          <children>
             <HBox prefHeight="300.0" prefWidth="900.0">
                <children>
-                  <Button id="buttonAddSkill" mnemonicParsing="false" styleClass="dashboard-button" text="Add Skill" />
-                  <Button id="buttonAddVolunteer" mnemonicParsing="false" styleClass="dashboard-button" text="Add Volunteer" />
-                  <Button id="buttonViewSkills" mnemonicParsing="false" styleClass="dashboard-button" text=" View Skills" />
+                  <Button id="buttonAddSkill" fx:id="addSkillButton" mnemonicParsing="false" styleClass="dashboard-button" text="Add Skill" />
+                  <Button id="buttonAddVolunteer" fx:id="addVolunteerButton" mnemonicParsing="false" styleClass="dashboard-button" text="Add Volunteer" />
+                  <Button id="buttonViewSkills" fx:id="viewSkillsButton" mnemonicParsing="false" styleClass="dashboard-button" text=" View Skills" />
                </children>
             </HBox>
             <HBox prefHeight="300.0" prefWidth="900.0" styleClass="dashboard-button-wrapper">
                <children>
-                  <Button id="buttonViewVolunteers" mnemonicParsing="false" styleClass="dashboard-button" text="View Volunteers" />
-                  <Button id="buttonLogout" mnemonicParsing="false" styleClass="dashboard-button" text="Logout" />
+                  <Button id="buttonViewVolunteers" fx:id="viewVolunteersButton" mnemonicParsing="false" styleClass="dashboard-button" text="View Volunteers" />
+                  <Button id="buttonLogout" fx:id="logoutButton" mnemonicParsing="false" styleClass="dashboard-button" text="Logout" />
                   <Button mnemonicParsing="false" styleClass="dashboard-button" text="Button" />
                </children>
             </HBox>

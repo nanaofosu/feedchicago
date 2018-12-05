@@ -131,6 +131,14 @@ public class ListVolunteersController {
 
         table.setItems(volunteersList);
 
+        try {
+            databaseHandler.getDbConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

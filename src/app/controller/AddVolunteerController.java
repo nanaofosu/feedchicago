@@ -179,6 +179,8 @@ public class AddVolunteerController {
            /* We want to retrieve the volunteer ID and skill ID and enter it into the skill_index table */
             databaseHandler.addToSkillIndex(selectedSkillID,newestVolunteerID);
 
+
+
         });
 
     }

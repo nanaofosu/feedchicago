@@ -6,8 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.stage.StageStyle;
 
 public class HomeController {
 
@@ -35,33 +34,35 @@ public class HomeController {
     public void initialize() {
 
         addSkillButton.setOnAction(event -> {
-            addSkillButton.getScene().getWindow().hide();
+//            addSkillButton.getScene().getWindow().hide();
             homerouter(ADD_SKILL_SCENE);
         });
 
         addVolunteerButton.setOnAction(event -> {
-            addSkillButton.getScene().getWindow().hide();
+//            addVolunteerButton.getScene().getWindow().hide();
             homerouter(ADD_VOLUNTEER_SCENE);
         });
 
         viewSkillsButton.setOnAction(event -> {
-            addSkillButton.getScene().getWindow().hide();
+//            viewSkillsButton.getScene().getWindow().hide();
             homerouter(ADD_SKILL_SCENE);
         });
 
         viewVolunteersButton.setOnAction(event -> {
-            addSkillButton.getScene().getWindow().hide();
+//            viewVolunteersButton.getScene().getWindow().hide();
             homerouter(VIEW_VOLUNTEERS_SCENE);
+
+
         });
 
         logoutButton.setOnAction(event -> {
-            addSkillButton.getScene().getWindow().hide();
+//            logoutButton.getScene().getWindow().hide();
             homerouter(LOGOUT_SCENE);
         });
 
     }
 
-    public void homerouter(String path) {
+    /*public void homerouter(String path) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
         try {
@@ -74,6 +75,20 @@ public class HomeController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
+    }*/
+
+    public void homerouter(String path) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("VIEW EM ALL");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }catch (Exception e){
+            System.out.println("CAnt show new windo");
+        }
     }
 
 

@@ -1,8 +1,6 @@
 package app.controller;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import app.assets.StringAssets;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
-import app.assets.StringAssets;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class LoginController implements StringAssets{
 
@@ -61,6 +62,7 @@ public class LoginController implements StringAssets{
         loginViewLoginButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/app/view/homeView.fxml"));
+//        loader.setLocation(Main.class.getResource("/app/view/homeView.fxml"));
         try {
             loader.load();
         } catch (IOException e) {

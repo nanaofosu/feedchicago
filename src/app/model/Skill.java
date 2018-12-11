@@ -9,6 +9,9 @@ public class Skill {
         this.skillDescription = desccription;
     }
 
+    public Skill(String setSkillname) {
+    }
+
     public String getSkillname() {
         return skillname;
     }

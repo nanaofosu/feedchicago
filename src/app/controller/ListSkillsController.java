@@ -48,9 +48,12 @@ public class ListSkillsController {
 
         //set the values of the colums
         skillCol.setCellValueFactory(new PropertyValueFactory<>("skillname"));
+
+
         descriptionCol.setCellValueFactory(new PropertyValueFactory<>("skillDescription"));
 
         table.setItems(skillsList);
+        table.setEditable(true);
 
         try {
             databaseHandler.getDbConnection().close();

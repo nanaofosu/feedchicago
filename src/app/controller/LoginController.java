@@ -49,6 +49,7 @@ public class LoginController implements StringAssets{
             if(username.equals("")){
                 loginViewErrorMessage.setText(USERNAME_EMPTY);
                 loginViewErrorMessage.setTextFill(Paint.valueOf("#000000"));
+                ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
             }
             else {
                 loginUser(username,password);
@@ -62,7 +63,7 @@ public class LoginController implements StringAssets{
         loginViewLoginButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/app/view/homeView.fxml"));
-//        loader.setLocation(Main.class.getResource("/app/view/homeView.fxml"));
+
         try {
             loader.load();
         } catch (IOException e) {

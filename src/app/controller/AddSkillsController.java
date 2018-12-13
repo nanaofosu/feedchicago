@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddSkillsController {
     @FXML
@@ -15,6 +16,9 @@ public class AddSkillsController {
 
     @FXML
     private Button addSkillsViewSaveButton;
+
+    @FXML
+    private Button addSkillsViewCancelButton;
 
     @FXML
     void initialize() {
@@ -28,7 +32,12 @@ public class AddSkillsController {
             String skillDescription = addSkillsViewDescription.getText();
             System.out.println(skillName +", "+ skillDescription);
             databaseHandler.addSkill(skillName, skillDescription);
+            //close the screen
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        });
 
+        addSkillsViewCancelButton.setOnAction(event -> {
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         });
 
 

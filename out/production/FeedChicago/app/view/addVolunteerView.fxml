@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="main-wrapper" stylesheets="@../assets/style.css"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AddVolunteerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="main-wrapper" stylesheets="@../assets/style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.AddVolunteerController">
    <children>
       <VBox prefHeight="244.0" prefWidth="251.0" style="-fx-padding: 10;">
          <children>
@@ -64,7 +64,29 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <Button fx:id="field_save" mnemonicParsing="false" text="Save" />
+            <HBox>
+               <children>
+                  <Button fx:id="field_save" mnemonicParsing="false" text="Save">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="file_cancel" mnemonicParsing="false" text="Cancel">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
       <ListView fx:id="fieldSkillList" layoutX="386.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />

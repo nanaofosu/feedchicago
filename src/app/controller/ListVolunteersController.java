@@ -5,9 +5,11 @@ import app.model.Volunteer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +17,9 @@ import java.sql.SQLException;
 import static app.database.Const.*;
 
 public class ListVolunteersController {
+
+    @FXML
+    private Button file_cancel;
 
     @FXML
     private TableView<Volunteer> table;
@@ -139,6 +144,9 @@ public class ListVolunteersController {
             e.printStackTrace();
         }
 
+        file_cancel.setOnAction(event -> {
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        });
     }
 
 }

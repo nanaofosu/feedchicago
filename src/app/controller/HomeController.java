@@ -53,6 +53,7 @@ public class HomeController {
 
         logoutButton.setOnAction(event -> {
             homerouter(LOGOUT_SCENE);
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         });
 
     }

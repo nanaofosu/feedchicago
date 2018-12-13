@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,6 +70,9 @@ public class AddVolunteerController {
 
     @FXML
     private ToggleGroup gender;
+
+    @FXML
+    private Button file_cancel;
 
     @FXML
     private ToggleGroup driversLicense;
@@ -140,7 +144,9 @@ public class AddVolunteerController {
         }
 
 
-
+        file_cancel.setOnAction(event -> {
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        });
 
         //when the save button is clicked gett all the values.
         field_save.setOnAction(event -> {

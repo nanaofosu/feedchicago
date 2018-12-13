@@ -25,11 +25,15 @@ public class HomeController {
     @FXML
     private Button logoutButton;
 
+    @FXML
+    private Button localsButton;
+
     private String ADD_SKILL_SCENE = "/app/view/addSkillsView.fxml";
     private String ADD_VOLUNTEER_SCENE = "/app/view/addVolunteerView.fxml";
     private String LOGOUT_SCENE = "/app/view/loginView.fxml";
     private String VIEW_VOLUNTEERS_SCENE = "/app/view/listVolunteersView.fxml";
     private String VIEW_SKILLS_SCENE = "/app/view/listSkillView.fxml";
+    private String VIEW_LOCALS_SCENE = "/app/view/listLocalsView.fxml";
 
     @FXML
     public void initialize() {
@@ -56,6 +60,15 @@ public class HomeController {
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         });
 
+        localsButton.setOnAction(event -> {
+            homerouter(VIEW_LOCALS_SCENE, "Chicago Locals");
+//            homerouter(VIEW_VOLUNTEERS_SCENE, "View all volunteers");
+
+
+        });
+
+
+
     }
 
 
@@ -70,7 +83,8 @@ public class HomeController {
             stage.setScene(new Scene(root1));
             stage.show();
         }catch (Exception e){
-            System.out.println("Cant show new window");
+//            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

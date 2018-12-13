@@ -16,6 +16,13 @@ public class Volunteer {
     private String license;
     private String skillname;
 
+    public Volunteer(String firstname, String lastname, String email, String phone) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Volunteer(String firstname, String lastname, String dob, String gender, String email, String address, String city, String state, String zipcode, String phone, String occupation, String employer, String license, String skillname) {
         this.firstname = firstname;
         this.lastname = lastname;

@@ -1,0 +1,23 @@
+Instructions for JGRASP:
+
+Main.java is located in FeedChicago/src/app
+All other classes have already been compiled you convenience sake.
+The project uses the Model-View-Controller method of programming. My database configuration is in FeedChicago/src/app/database
+This project also uses FXML for the Views.
+Run Main.java. There will be a login page. Use any username and password to login.
+
+You can do the following after you login.
+Add Skill
+View Skills
+Add Volunteer
+View Volunteer
+View Locals
+Logout
+
+We have included a screenshot of our directory tree for better reference.
+We have also included an SQL file purely for reference. This file is a copy of our database and does not affect the application working.
+
+We went above and beyond with the Java program. We hope you enjoy it.
+
+- Nana Ofosu Budu
+- Sheilfer Zepeda

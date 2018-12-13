@@ -35,24 +35,24 @@ public class HomeController {
     public void initialize() {
 
         addSkillButton.setOnAction(event -> {
-            homerouter(ADD_SKILL_SCENE);
+            homerouter(ADD_SKILL_SCENE, "Add a skill.");
         });
 
         addVolunteerButton.setOnAction(event -> {
-            homerouter(ADD_VOLUNTEER_SCENE);
+            homerouter(ADD_VOLUNTEER_SCENE, "Add a Volunteer.");
         });
 
         viewSkillsButton.setOnAction(event -> {
-            homerouter(VIEW_SKILLS_SCENE);
+            homerouter(VIEW_SKILLS_SCENE, "View all skills.");
         });
 
         viewVolunteersButton.setOnAction(event -> {
-            homerouter(VIEW_VOLUNTEERS_SCENE);
+            homerouter(VIEW_VOLUNTEERS_SCENE, "View all volunteers");
 
         });
 
         logoutButton.setOnAction(event -> {
-            homerouter(LOGOUT_SCENE);
+            homerouter(LOGOUT_SCENE, "Feed Chicago App");
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         });
 
@@ -60,17 +60,17 @@ public class HomeController {
 
 
     /*  OPEN A NEW WINDOW SO WE DON"T RUN OUT OF MEMORY */
-    public void homerouter(String path) {
+    public void homerouter(String path, String title) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.initStyle(StageStyle.DECORATED);
-            stage.setTitle("VIEW EM ALL");
+            stage.setTitle(title);
             stage.setScene(new Scene(root1));
             stage.show();
         }catch (Exception e){
-            System.out.println("CAnt show new windo");
+            System.out.println("Cant show new window");
         }
     }
 

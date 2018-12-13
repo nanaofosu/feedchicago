@@ -2,13 +2,13 @@
   <library name="com.jfoenix:jfoenix:Release" type="repository">
     <properties maven-id="com.jfoenix:jfoenix:RELEASE" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.8/jfoenix-9.0.8.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.8/jfoenix-9.0.8-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.6/jfoenix-9.0.6-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.8/jfoenix-9.0.8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
